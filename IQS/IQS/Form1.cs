@@ -16,5 +16,13 @@ namespace IQS
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //Botoes no inicio
+            PanelContainer.Controls.Clear();
+            UserControlButtons _Botoes = new UserControlButtons(this);
+            PanelContainer.Controls.Add(_Botoes);
+        }
     }
 }
