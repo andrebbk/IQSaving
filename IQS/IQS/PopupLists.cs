@@ -151,5 +151,14 @@ namespace IQS
                 LoadLists();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Enviar lista ordenada para display
+            FormPics _guardalas = new FormPics(_Urls, formInit);
+            _guardalas.Show();
+
+            this.Close();
+        }
     }
 }
