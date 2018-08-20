@@ -29,6 +29,19 @@ namespace IQS
             PopulateListView();
         }
 
+        //Form drag
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
+        }
+
+        //Form drag
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
+
         private void pictureBoxMini_Click(object sender, EventArgs e)
         {
             //Minimizar
@@ -86,6 +99,11 @@ namespace IQS
             responseStream.Dispose();
 
             return bmp;
+        }
+
+        private void FormPics_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

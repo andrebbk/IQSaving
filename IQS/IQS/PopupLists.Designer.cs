@@ -120,6 +120,7 @@
             this.RightRedArrow.Size = new System.Drawing.Size(82, 62);
             this.RightRedArrow.TabIndex = 13;
             this.RightRedArrow.TabStop = false;
+            this.RightRedArrow.Click += new System.EventHandler(this.RightRedArrow_Click);
             // 
             // LeftGreenArrow
             // 
@@ -131,6 +132,7 @@
             this.LeftGreenArrow.Size = new System.Drawing.Size(82, 62);
             this.LeftGreenArrow.TabIndex = 14;
             this.LeftGreenArrow.TabStop = false;
+            this.LeftGreenArrow.Click += new System.EventHandler(this.LeftGreenArrow_Click);
             // 
             // UParrow
             // 
@@ -142,6 +144,7 @@
             this.UParrow.Size = new System.Drawing.Size(80, 80);
             this.UParrow.TabIndex = 15;
             this.UParrow.TabStop = false;
+            this.UParrow.Click += new System.EventHandler(this.UParrow_Click);
             // 
             // DOWNarrow
             // 
@@ -153,6 +156,7 @@
             this.DOWNarrow.Size = new System.Drawing.Size(80, 80);
             this.DOWNarrow.TabIndex = 16;
             this.DOWNarrow.TabStop = false;
+            this.DOWNarrow.Click += new System.EventHandler(this.DOWNarrow_Click);
             // 
             // buttonQuit
             // 

@@ -134,6 +134,7 @@
             this.Name = "FormPics";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IQSaving";
+            this.Load += new System.EventHandler(this.FormPics_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
