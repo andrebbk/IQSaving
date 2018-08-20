@@ -24,5 +24,17 @@ namespace IQS
         {
             FormInicio.Close();
         }
+
+        private void buttonChecking_Click(object sender, EventArgs e)
+        {
+            DataObject retrievedData = (DataObject)Clipboard.GetDataObject();
+
+            if (retrievedData == null)
+            {
+                return;
+            }
+
+            FormInicio.StartCheckingProcess();
+        }
     }
 }

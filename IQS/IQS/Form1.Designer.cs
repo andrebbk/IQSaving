@@ -32,7 +32,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelContainer = new System.Windows.Forms.Panel();
+            this.pictureBoxMini = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -65,6 +67,18 @@
             this.PanelContainer.Size = new System.Drawing.Size(651, 267);
             this.PanelContainer.TabIndex = 2;
             // 
+            // pictureBoxMini
+            // 
+            this.pictureBoxMini.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxMini.BackgroundImage = global::IQS.Properties.Resources.arrow_minimize;
+            this.pictureBoxMini.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxMini.Location = new System.Drawing.Point(669, 1);
+            this.pictureBoxMini.Name = "pictureBoxMini";
+            this.pictureBoxMini.Size = new System.Drawing.Size(51, 52);
+            this.pictureBoxMini.TabIndex = 3;
+            this.pictureBoxMini.TabStop = false;
+            this.pictureBoxMini.Click += new System.EventHandler(this.pictureBoxMini_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -74,6 +88,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(721, 480);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBoxMini);
             this.Controls.Add(this.PanelContainer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -84,6 +99,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,6 +110,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel PanelContainer;
+        private System.Windows.Forms.PictureBox pictureBoxMini;
     }
 }
 

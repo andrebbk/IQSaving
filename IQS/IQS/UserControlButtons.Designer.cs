@@ -60,6 +60,7 @@
             this.buttonChecking.TabIndex = 4;
             this.buttonChecking.Text = "Check URLs";
             this.buttonChecking.UseVisualStyleBackColor = false;
+            this.buttonChecking.Click += new System.EventHandler(this.buttonChecking_Click);
             // 
             // UserControlButtons
             // 
