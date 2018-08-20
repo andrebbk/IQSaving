@@ -5,43 +5,80 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace IQS
 {
     public class Funcionalidades
     {
-        public void MoveToUrls(Form1 _formInicio)
+        //Buscar so urls de imagens
+        public static List<string> BuscarUrls()
         {
-
-        }
-
-        public static bool doesImageExistRemotely(string uriToImage)
-        {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uriToImage);
-            request.Method = "HEAD";
-
-            try
+            if (Clipboard.GetText().ToString() != "")
             {
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                string Dados = Clipboard.GetText().ToString();
 
-                if (response.StatusCode == HttpStatusCode.OK && response.ContentType == "image/jpg")
+                string[] data_ = Dados.Split('\n');
+
+                //Lista com as strings copiadas
+                List<string> _urls = data_.OfType<string>().ToList();
+
+                //Remover /r/n
+                foreach (string str in _urls.ToList())
                 {
-                    response.Close();
-                    return true;
+                    var itemIndex = _urls.FindIndex(x => x == str);
+                    var item = _urls.ElementAt(itemIndex);
+                    _urls.RemoveAt(itemIndex);
+                    item = str.Replace("\r\n", "").Replace("\r", "").Replace("\n", "");
+                    _urls.Insert(itemIndex, item);
                 }
-                else
-                {
-                    response.Close();
-                    return false;
-                }                
-            }
-            catch
-            {
-                return false;                
-            }
-           
-        }
 
+                //Verificar se são urls
+                foreach (string str2 in _urls.ToList())
+                {
+                    if (!String.IsNullOrWhiteSpace(str2))
+                    {
+                        if (!Uri.IsWellFormedUriString(str2, UriKind.Absolute))
+                        {
+                            //Remover o index item em causa
+                            var itemIndex = _urls.FindIndex(x => x == str2);
+                            var item = _urls.ElementAt(itemIndex);
+                            _urls.RemoveAt(itemIndex);
+                        }
+                    }
+                    else
+                    {
+                        //Remover o index item em causa
+                        var itemIndex = _urls.FindIndex(x => x == str2);
+                        var item = _urls.ElementAt(itemIndex);
+                        _urls.RemoveAt(itemIndex);
+                    }
+                }                    
+
+                //verificar se existe urls ou nao mostrar dados
+                if(_urls.Count() < 1)
+                    return null;
+
+                //Enviar urls de imagens
+                List<string> _lista = new List<string>();
+
+                foreach (string str3 in _urls)
+                {
+                    if(!String.IsNullOrWhiteSpace(str3) && IsImageUrl(str3))
+                        _lista.Add(str3);
+                }
+
+                return _lista;
+
+            }
+            else
+            {
+                //Não existe nada no clipboard
+                return null;
+            }
+        }       
+
+        //Verificar urls
         public static bool IsImageUrl(string URL)
         {
             //separar string pelos pontos finais

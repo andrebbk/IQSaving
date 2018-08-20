@@ -41,8 +41,11 @@ namespace IQS
         public void StartCheckingProcess()
         {
             PanelContainer.Controls.Clear();
-            UserControlLoading _loads = new UserControlLoading(this);
+            UserControlLoading _loads = new UserControlLoading();
             PanelContainer.Controls.Add(_loads);
+
+            //Usar outra thread
+            Task task = Task.Run(() => SendUrlsToPicsForm(this));
         }
 
         public void ReturnBegun()
@@ -56,6 +59,27 @@ namespace IQS
         {
             //Minimizar
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void SendUrlsToPicsForm(Form1 _formInicio)
+        {
+            //Organizar Urls
+            List<string> _Urls = new List<string>();
+            _Urls = Funcionalidades.BuscarUrls();            
+
+            //Fechar este 
+            System.Threading.Thread.Sleep(2000);
+
+            this.Invoke((MethodInvoker)delegate
+            {
+                //Envia-las para o novo Pics Form
+                FormPics _novoPics = new FormPics(_Urls, _formInicio);
+                _novoPics.Show();
+
+                //Close form1
+                _formInicio.Hide();
+            });
+
         }
     }
 }
