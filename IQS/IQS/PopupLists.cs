@@ -81,7 +81,10 @@ namespace IQS
 
         private void buttonQuit_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            formInit.ReturnBegun();
+            formInit.Show();
+
+            this.Close();
         }
 
         private void UParrow_Click(object sender, EventArgs e)
