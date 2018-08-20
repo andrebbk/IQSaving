@@ -101,7 +101,7 @@ namespace IQS
         private void CLeanForm()
         {
             textBoxName.Clear();
-            textBoxPath.Clear();
+            //textBoxPath.Clear();
         }
 
         private void buttonChecking_Click(object sender, EventArgs e)
