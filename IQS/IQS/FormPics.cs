@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,8 @@ namespace IQS
 
 
             formInit = _formInicio;
+
+            PopulateListView();
         }
 
         private void pictureBoxMini_Click(object sender, EventArgs e)
@@ -43,7 +46,50 @@ namespace IQS
             this.Close();
         }
 
-        private void FormPics_Load(object sender, EventArgs e)
+        private void PopulateListView()
+        {
+            ImageList _images = new ImageList();
+            _images.ImageSize = new Size(192, 192);
+            _images.ColorDepth = ColorDepth.Depth32Bit;
+
+            foreach (string str in _Urls)
+            {
+                using (MemoryStream ms = new MemoryStream(Funcionalidades.GetImageAsByteArray(str)))
+                {
+                    _images.Images.Add(Image.FromStream(ms));
+                }
+            }
+
+            listViewFotos.View = View.LargeIcon;
+            listViewFotos.LargeImageList = _images;
+            
+
+            for (int j = 0; j < _images.Images.Count; j++)
+            {
+                ListViewItem item = new ListViewItem();
+                item.ImageIndex = j;
+                listViewFotos.Items.Add(item);
+            }
+
+        }
+
+        private Image LoadImage(string url)
+        {
+            System.Net.WebRequest request =
+                System.Net.WebRequest.Create(url);
+
+            System.Net.WebResponse response = request.GetResponse();
+            System.IO.Stream responseStream =
+                response.GetResponseStream();
+
+            Bitmap bmp = new Bitmap(responseStream);
+
+            responseStream.Dispose();
+
+            return bmp;
+        }
+
+        private void ValidateStrings()
         {
 
         }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -63,12 +64,44 @@ namespace IQS
 
         private void SendUrlsToPicsForm(Form1 _formInicio)
         {
+
+            IDataObject idat = null;
+            Exception threadEx = null;
+            String text = "";
+            Thread staThread = new Thread(
+                delegate ()
+                {
+                    try
+                    {
+                        idat = Clipboard.GetDataObject();
+                        text = idat.GetData(DataFormats.Text).ToString();            
+                    }
+
+                    catch (Exception ex)
+                    {
+                        threadEx = ex;
+                    }
+                });
+            staThread.SetApartmentState(ApartmentState.STA);
+            staThread.Start();
+            staThread.Join();
+
             //Organizar Urls
             List<string> _Urls = new List<string>();
-            _Urls = Funcionalidades.BuscarUrls();            
+
+            if (!String.IsNullOrEmpty(text))
+            {
+                string Dados = Clipboard.GetText(TextDataFormat.Text).ToString();
+                _Urls = Funcionalidades.BuscarUrls(text);
+            }
+            else
+            {
+                //Não existe nada no clipboard
+                _Urls = null;
+            }                       
 
             //Fechar este 
-            System.Threading.Thread.Sleep(2000);
+            System.Threading.Thread.Sleep(1000);
 
             this.Invoke((MethodInvoker)delegate
             {

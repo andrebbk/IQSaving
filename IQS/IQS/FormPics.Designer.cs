@@ -32,7 +32,7 @@
             this.pictureBoxMini = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewFotos = new System.Windows.Forms.ListView();
             this.buttonSavePhotos = new System.Windows.Forms.Button();
             this.buttonLeave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini)).BeginInit();
@@ -73,13 +73,18 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // listView1
+            // listViewFotos
             // 
-            this.listView1.Location = new System.Drawing.Point(33, 95);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1014, 525);
-            this.listView1.TabIndex = 7;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewFotos.Alignment = System.Windows.Forms.ListViewAlignment.Left;
+            this.listViewFotos.BackColor = System.Drawing.Color.Gray;
+            this.listViewFotos.BackgroundImage = global::IQS.Properties.Resources.tree_361647_640;
+            this.listViewFotos.BackgroundImageTiled = true;
+            this.listViewFotos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listViewFotos.Location = new System.Drawing.Point(33, 95);
+            this.listViewFotos.Name = "listViewFotos";
+            this.listViewFotos.Size = new System.Drawing.Size(1014, 525);
+            this.listViewFotos.TabIndex = 7;
+            this.listViewFotos.UseCompatibleStateImageBehavior = false;
             // 
             // buttonSavePhotos
             // 
@@ -120,15 +125,15 @@
             this.ControlBox = false;
             this.Controls.Add(this.buttonLeave);
             this.Controls.Add(this.buttonSavePhotos);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listViewFotos);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBoxMini);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPics";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IQSaving";
-            this.Load += new System.EventHandler(this.FormPics_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -141,7 +146,7 @@
         private System.Windows.Forms.PictureBox pictureBoxMini;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewFotos;
         private System.Windows.Forms.Button buttonSavePhotos;
         private System.Windows.Forms.Button buttonLeave;
     }
