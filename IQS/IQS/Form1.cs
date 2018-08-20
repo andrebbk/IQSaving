@@ -104,10 +104,16 @@ namespace IQS
             _Urls = Funcionalidades.BuscarUrls2(text);
 
             //Fechar este 
-            System.Threading.Thread.Sleep(1000);
-
+            System.Threading.Thread.Sleep(1000);            
+                
             this.Invoke((MethodInvoker)delegate
             {
+                if (_PicsUrls == null || _Urls == null)
+                {
+                    ReturnBegun();
+                    return;
+                }
+
                 //Envia-las para o novo Pics Form
                 PopupLists _novoPics = new PopupLists(_PicsUrls, _formInicio, _Urls);
                 _novoPics.Show();

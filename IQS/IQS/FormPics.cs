@@ -105,5 +105,11 @@ namespace IQS
         {
 
         }
+
+        private void buttonSavePhotos_Click(object sender, EventArgs e)
+        {
+            FormSavePics _SaveNow = new FormSavePics(_Urls, this, formInit);
+            _SaveNow.Show();
+        }
     }
 }

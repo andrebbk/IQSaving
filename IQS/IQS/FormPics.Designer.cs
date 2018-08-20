@@ -75,7 +75,6 @@
             // 
             // listViewFotos
             // 
-            this.listViewFotos.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.listViewFotos.BackColor = System.Drawing.Color.Gray;
             this.listViewFotos.BackgroundImage = global::IQS.Properties.Resources.tree_361647_640;
             this.listViewFotos.BackgroundImageTiled = true;
@@ -99,6 +98,7 @@
             this.buttonSavePhotos.TabIndex = 8;
             this.buttonSavePhotos.Text = "Save Photos";
             this.buttonSavePhotos.UseVisualStyleBackColor = false;
+            this.buttonSavePhotos.Click += new System.EventHandler(this.buttonSavePhotos_Click);
             // 
             // buttonLeave
             // 

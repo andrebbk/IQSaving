@@ -57,6 +57,12 @@
     <Compile Include="FormPics.Designer.cs">
       <DependentUpon>FormPics.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSavePics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSavePics.Designer.cs">
+      <DependentUpon>FormSavePics.cs</DependentUpon>
+    </Compile>
     <Compile Include="Funcionalidades.cs" />
     <Compile Include="PopupLists.cs">
       <SubType>Form</SubType>
@@ -88,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPics.resx">
       <DependentUpon>FormPics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSavePics.resx">
+      <DependentUpon>FormSavePics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PopupLists.resx">
       <DependentUpon>PopupLists.cs</DependentUpon>
