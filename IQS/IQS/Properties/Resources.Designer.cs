@@ -73,9 +73,39 @@ namespace IQS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow_right_red {
+            get {
+                object obj = ResourceManager.GetObject("arrow_right_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap loadsg {
             get {
                 object obj = ResourceManager.GetObject("loadsg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap previous {
+            get {
+                object obj = ResourceManager.GetObject("previous", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap round_black_bottom_arrow {
+            get {
+                object obj = ResourceManager.GetObject("round_black_bottom_arrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +136,16 @@ namespace IQS.Properties {
         internal static System.Drawing.Bitmap tree_361647_640 {
             get {
                 object obj = ResourceManager.GetObject("tree_361647_640", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap up_circular_icon_512 {
+            get {
+                object obj = ResourceManager.GetObject("up_circular_icon_512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

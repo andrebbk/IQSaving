@@ -66,7 +66,54 @@ namespace IQS
             }
 
             return _lista;           
-        }       
+        }
+
+        //Buscar so urls
+        public static List<string> BuscarUrls2(string Dados)
+        {
+            string[] data_ = Dados.Split('\n');
+
+            //Lista com as strings copiadas
+            List<string> _urls = data_.OfType<string>().ToList();
+
+            //Remover /r/n
+            foreach (string str in _urls.ToList())
+            {
+                var itemIndex = _urls.FindIndex(x => x == str);
+                var item = _urls.ElementAt(itemIndex);
+                _urls.RemoveAt(itemIndex);
+                item = str.Replace("\r\n", "").Replace("\r", "").Replace("\n", "");
+                _urls.Insert(itemIndex, item);
+            }
+
+            //Verificar se são urls
+            foreach (string str2 in _urls.ToList())
+            {
+                if (!String.IsNullOrWhiteSpace(str2))
+                {
+                    if (!Uri.IsWellFormedUriString(str2, UriKind.Absolute))
+                    {
+                        //Remover o index item em causa
+                        var itemIndex = _urls.FindIndex(x => x == str2);
+                        var item = _urls.ElementAt(itemIndex);
+                        _urls.RemoveAt(itemIndex);
+                    }
+                }
+                else
+                {
+                    //Remover o index item em causa
+                    var itemIndex = _urls.FindIndex(x => x == str2);
+                    var item = _urls.ElementAt(itemIndex);
+                    _urls.RemoveAt(itemIndex);
+                }
+            }
+
+            //verificar se existe urls ou nao mostrar dados
+            if (_urls.Count() < 1)
+                return null;
+
+            return _urls;
+        }
 
         //Verificar urls
         public static bool IsImageUrl(string URL)

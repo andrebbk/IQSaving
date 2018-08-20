@@ -24,7 +24,6 @@ namespace IQS
             _Urls = new List<string>();
             _Urls = _dados;
 
-
             formInit = _formInicio;
 
             PopulateListView();
@@ -87,11 +86,6 @@ namespace IQS
             responseStream.Dispose();
 
             return bmp;
-        }
-
-        private void ValidateStrings()
-        {
-
         }
     }
 }

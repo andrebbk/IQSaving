@@ -87,18 +87,21 @@ namespace IQS
             staThread.Join();
 
             //Organizar Urls
+            List<string> _PicsUrls = new List<string>();
             List<string> _Urls = new List<string>();
 
             if (!String.IsNullOrEmpty(text))
             {
                 string Dados = Clipboard.GetText(TextDataFormat.Text).ToString();
-                _Urls = Funcionalidades.BuscarUrls(text);
+                _PicsUrls = Funcionalidades.BuscarUrls(text);
             }
             else
             {
                 //Não existe nada no clipboard
-                _Urls = null;
-            }                       
+                _PicsUrls = null;
+            }
+
+            _Urls = Funcionalidades.BuscarUrls2(text);
 
             //Fechar este 
             System.Threading.Thread.Sleep(1000);
@@ -106,7 +109,7 @@ namespace IQS
             this.Invoke((MethodInvoker)delegate
             {
                 //Envia-las para o novo Pics Form
-                FormPics _novoPics = new FormPics(_Urls, _formInicio);
+                PopupLists _novoPics = new PopupLists(_PicsUrls, _formInicio, _Urls);
                 _novoPics.Show();
 
                 //Close form1
