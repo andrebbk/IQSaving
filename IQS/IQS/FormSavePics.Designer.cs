@@ -35,9 +35,10 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonChecking = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxPath = new System.Windows.Forms.TextBox();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonLeave = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,17 +112,19 @@
             this.buttonChecking.Text = "...";
             this.buttonChecking.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonChecking.UseVisualStyleBackColor = false;
+            this.buttonChecking.Click += new System.EventHandler(this.buttonChecking_Click);
             // 
-            // textBox1
+            // textBoxPath
             // 
-            this.textBox1.BackColor = System.Drawing.Color.DimGray;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.textBox1.Location = new System.Drawing.Point(70, 242);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(334, 29);
-            this.textBox1.TabIndex = 13;
+            this.textBoxPath.BackColor = System.Drawing.Color.DimGray;
+            this.textBoxPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPath.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.textBoxPath.Location = new System.Drawing.Point(70, 242);
+            this.textBoxPath.Name = "textBoxPath";
+            this.textBoxPath.ReadOnly = true;
+            this.textBoxPath.Size = new System.Drawing.Size(334, 29);
+            this.textBoxPath.TabIndex = 13;
+            this.textBoxPath.Click += new System.EventHandler(this.textBoxPath_Click);
             // 
             // buttonOk
             // 
@@ -155,6 +158,15 @@
             this.buttonLeave.UseVisualStyleBackColor = false;
             this.buttonLeave.Click += new System.EventHandler(this.buttonLeave_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(70, 423);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "checking for erros...";
+            // 
             // FormSavePics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,9 +175,10 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(490, 448);
             this.ControlBox = false;
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonLeave);
             this.Controls.Add(this.buttonOk);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxPath);
             this.Controls.Add(this.buttonChecking);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxName);
@@ -191,8 +204,9 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonChecking;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxPath;
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonLeave;
+        private System.Windows.Forms.Label label4;
     }
 }

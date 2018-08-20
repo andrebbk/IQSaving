@@ -93,9 +93,9 @@ namespace IQS
             {
                 if ((listBox1.SelectedIndex - 1) >= 0)
                 {
-                    string texto1 = listBox1.GetItemText(listBox1.SelectedItem);
+                    string texto1 = _Urls.ElementAt(listBox1.SelectedIndex);
                     _Urls.RemoveAt(listBox1.SelectedIndex);
-                    string texto2 = listBox1.Items[listBox1.SelectedIndex - 1].ToString();
+                    string texto2 = _Urls.ElementAt(listBox1.SelectedIndex - 1);
                     _Urls.RemoveAt(listBox1.SelectedIndex - 1);
 
                     _Urls.Insert(listBox1.SelectedIndex - 1, texto1);
@@ -115,9 +115,9 @@ namespace IQS
             {
                 if ((listBox1.SelectedIndex + 1) <= (listBox1.Items.Count - 1))
                 {                    
-                    string texto2 = listBox1.Items[listBox1.SelectedIndex + 1].ToString();
+                    string texto2 = _Urls.ElementAt(listBox1.SelectedIndex + 1);
                     _Urls.RemoveAt(listBox1.SelectedIndex + 1);
-                    string texto1 = listBox1.GetItemText(listBox1.SelectedItem);
+                    string texto1 = _Urls.ElementAt(listBox1.SelectedIndex );
                     _Urls.RemoveAt(listBox1.SelectedIndex);
 
                     _Urls.Insert(listBox1.SelectedIndex, texto2);
@@ -145,7 +145,7 @@ namespace IQS
         {
             if (listBox2.SelectedIndex != -1)
             {
-                _Urls.Add(listBox2.GetItemText(listBox2.SelectedItem));
+                _Urls.Add(_Urls2.ElementAt(listBox2.SelectedIndex));
 
                 //Refresh
                 LoadLists();
