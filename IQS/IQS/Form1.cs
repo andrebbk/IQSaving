@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,6 +16,9 @@ namespace IQS
 {
     public partial class Form1 : Form
     {
+        private String Caminho = null;
+        List<string> Urls_;
+
         public Form1()
         {
             InitializeComponent();
@@ -31,38 +37,13 @@ namespace IQS
         private const int HT_CLIENT = 0x1;
         private const int HT_CAPTION = 0x2;
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //Botoes no inicio
-            PanelContainer.Controls.Clear();
-            UserControlButtons _Botoes = new UserControlButtons(this);
-            PanelContainer.Controls.Add(_Botoes);
-        }
-
-        public void StartCheckingProcess()
-        {
-            PanelContainer.Controls.Clear();
-            UserControlLoading _loads = new UserControlLoading();
-            PanelContainer.Controls.Add(_loads);
-
-            //Usar outra thread
-            Task task = Task.Run(() => SendUrlsToPicsForm(this));
-        }
-
-        public void ReturnBegun()
-        {
-            PanelContainer.Controls.Clear();
-            UserControlButtons _Botoes = new UserControlButtons(this);
-            PanelContainer.Controls.Add(_Botoes);
-        }
-
         private void pictureBoxMini_Click(object sender, EventArgs e)
         {
             //Minimizar
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void SendUrlsToPicsForm(Form1 _formInicio)
+        private void SendUrlsToPicsForm()
         {
 
             IDataObject idat = null;
@@ -87,41 +68,152 @@ namespace IQS
             staThread.Join();
 
             //Organizar Urls
-            List<string> _PicsUrls = new List<string>();
             List<string> _Urls = new List<string>();
 
             if (!String.IsNullOrEmpty(text))
             {
                 string Dados = Clipboard.GetText(TextDataFormat.Text).ToString();
-                _PicsUrls = Funcionalidades.BuscarUrls(text);
+                _Urls = Funcionalidades.BuscarUrls(text);
             }
             else
             {
                 //Não existe nada no clipboard
-                _PicsUrls = null;
+                _Urls = null;
             }
 
-            _Urls = Funcionalidades.BuscarUrls2(text);
-
             //Fechar este 
-            System.Threading.Thread.Sleep(1000);            
-                
+            System.Threading.Thread.Sleep(1000);
+
             this.Invoke((MethodInvoker)delegate
             {
-                if (_PicsUrls == null || _Urls == null)
+                if (_Urls == null)
                 {
-                    ReturnBegun();
                     return;
                 }
 
                 //Envia-las para o novo Pics Form
-                PopupLists _novoPics = new PopupLists(_PicsUrls, _formInicio, _Urls);
-                _novoPics.Show();
-
-                //Close form1
-                _formInicio.Hide();
+                Urls_ = _Urls;
             });
+        }
 
+        private void buttonChecking_Click(object sender, EventArgs e)
+        {
+            DataObject retrievedData = (DataObject)Clipboard.GetDataObject();
+
+            if (retrievedData == null)
+            {
+                label4.Text = "Data missing...";
+                return;
+            }
+
+            if (String.IsNullOrEmpty(textBoxName.Text) || textBoxName.Text == " ")
+            {
+                label4.Text = "Name missing...";
+                return;
+            }
+
+            if (String.IsNullOrEmpty(textBoxPath.Text) || textBoxPath.Text == " ")
+            {
+                label4.Text = "Path missing...";
+                return;
+            }
+
+            try
+            {
+                //Organizar e carregar urls
+                SendUrlsToPicsForm();
+            }
+            catch
+            {
+                label4.Text = "Error organizing photos...";
+                return;
+            }
+
+            try
+            {
+                //Guardar todas as fotos na pasta X com o nome Y
+                SaveAllPhotos(textBoxName.Text);
+            }
+            catch
+            {
+                label4.Text = "Error saving photos...";
+                return;
+            }
+
+            //FIM
+            label4.Text = "Photos saved successfully!";
+            textBoxName.Clear();
+
+            Thread _Thread = new Thread(new ThreadStart(ResetLAbel4));
+            _Thread.Start();
+        }
+
+        private void SaveAllPhotos(string nome)
+        {
+            if(Urls_ == null)
+            {
+                label4.Text = " Invalid URLs...";
+                return;
+            }
+
+            int contador = 0;
+
+            foreach (string Uri_ in Urls_)
+            {
+                using (WebClient webClient = new WebClient())
+                {
+                    byte[] data = webClient.DownloadData(Uri_);
+
+                    using (MemoryStream mem = new MemoryStream(data))
+                    {
+                        using (var yourImage = Image.FromStream(mem))
+                        {
+                            string[] partes = Uri_.Split('.');
+                            if (partes[partes.Count() - 1].Equals("png"))
+                            {
+                                yourImage.Save(Caminho + nome + contador.ToString() + ".png", ImageFormat.Png);
+                            }
+                            else
+                            {
+                                // If you want it as Jpeg
+                                yourImage.Save(Caminho + nome + contador.ToString() + ".jpg", ImageFormat.Jpeg);
+                            }
+
+                        }
+                    }
+
+                }
+
+                contador++;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog folderBrowser = new OpenFileDialog();
+
+            folderBrowser.ValidateNames = false;
+            folderBrowser.CheckFileExists = false;
+            folderBrowser.CheckPathExists = true;
+
+            // Always default to Folder Selection.
+            folderBrowser.FileName = "Folder Selection.";
+
+            if (folderBrowser.ShowDialog() == DialogResult.OK)
+            {
+                Caminho = folderBrowser.FileName.Replace("Folder Selection", "");
+                textBoxPath.Text = folderBrowser.FileName.Replace("Folder Selection", "");
+            }
+        }
+
+        void ResetLAbel4()
+        {
+            System.Threading.Thread.Sleep(2000);
+
+            label4.Invoke((MethodInvoker)delegate {
+
+                label4.Text = "";
+            });
         }
     }
 }

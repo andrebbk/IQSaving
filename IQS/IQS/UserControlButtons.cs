@@ -33,8 +33,6 @@ namespace IQS
             {
                 return;
             }
-
-            FormInicio.StartCheckingProcess();
         }
     }
 }

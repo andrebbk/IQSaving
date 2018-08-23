@@ -57,7 +57,6 @@ namespace IQS
             formPics.Close();
 
             //open inicio
-            formInit.ReturnBegun();
             formInit.Show();
 
             CLeanForm();

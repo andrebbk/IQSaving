@@ -70,7 +70,7 @@
             this.Controls.Add(this.buttonQuit);
             this.Controls.Add(this.buttonChecking);
             this.Name = "UserControlButtons";
-            this.Size = new System.Drawing.Size(618, 367);
+            this.Size = new System.Drawing.Size(731, 367);
             this.ResumeLayout(false);
 
         }

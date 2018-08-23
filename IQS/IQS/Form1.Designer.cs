@@ -31,8 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.PanelContainer = new System.Windows.Forms.Panel();
             this.pictureBoxMini = new System.Windows.Forms.PictureBox();
+            this.buttonQuit = new System.Windows.Forms.Button();
+            this.buttonChecking = new System.Windows.Forms.Button();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxPath = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini)).BeginInit();
             this.SuspendLayout();
@@ -41,9 +48,9 @@
             // 
             this.pictureBox1.BackgroundImage = global::IQS.Properties.Resources.save;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(476, 43);
+            this.pictureBox1.Location = new System.Drawing.Point(454, 29);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 136);
+            this.pictureBox1.Size = new System.Drawing.Size(185, 176);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -59,14 +66,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "IQSaving";
             // 
-            // PanelContainer
-            // 
-            this.PanelContainer.BackColor = System.Drawing.Color.Transparent;
-            this.PanelContainer.Location = new System.Drawing.Point(26, 185);
-            this.PanelContainer.Name = "PanelContainer";
-            this.PanelContainer.Size = new System.Drawing.Size(651, 267);
-            this.PanelContainer.TabIndex = 2;
-            // 
             // pictureBoxMini
             // 
             this.pictureBoxMini.BackColor = System.Drawing.Color.Transparent;
@@ -79,6 +78,107 @@
             this.pictureBoxMini.TabStop = false;
             this.pictureBoxMini.Click += new System.EventHandler(this.pictureBoxMini_Click);
             // 
+            // buttonQuit
+            // 
+            this.buttonQuit.BackColor = System.Drawing.Color.Transparent;
+            this.buttonQuit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.buttonQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonQuit.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonQuit.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.buttonQuit.Location = new System.Drawing.Point(45, 313);
+            this.buttonQuit.Name = "buttonQuit";
+            this.buttonQuit.Size = new System.Drawing.Size(290, 63);
+            this.buttonQuit.TabIndex = 7;
+            this.buttonQuit.Text = "Leave";
+            this.buttonQuit.UseVisualStyleBackColor = false;
+            // 
+            // buttonChecking
+            // 
+            this.buttonChecking.BackColor = System.Drawing.Color.Transparent;
+            this.buttonChecking.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.buttonChecking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonChecking.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonChecking.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.buttonChecking.Location = new System.Drawing.Point(45, 220);
+            this.buttonChecking.Name = "buttonChecking";
+            this.buttonChecking.Size = new System.Drawing.Size(290, 74);
+            this.buttonChecking.TabIndex = 6;
+            this.buttonChecking.Text = "Check URLs";
+            this.buttonChecking.UseVisualStyleBackColor = false;
+            this.buttonChecking.Click += new System.EventHandler(this.buttonChecking_Click);
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.BackColor = System.Drawing.Color.DimGray;
+            this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxName.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.textBoxName.Location = new System.Drawing.Point(364, 255);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(334, 29);
+            this.textBoxName.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.label2.Location = new System.Drawing.Point(358, 220);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 32);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Name:";
+            // 
+            // textBoxPath
+            // 
+            this.textBoxPath.BackColor = System.Drawing.Color.DimGray;
+            this.textBoxPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPath.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.textBoxPath.Location = new System.Drawing.Point(364, 330);
+            this.textBoxPath.Name = "textBoxPath";
+            this.textBoxPath.ReadOnly = true;
+            this.textBoxPath.Size = new System.Drawing.Size(334, 29);
+            this.textBoxPath.TabIndex = 16;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.button1.Location = new System.Drawing.Point(631, 365);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(67, 36);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "...";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.NavajoWhite;
+            this.label3.Location = new System.Drawing.Point(358, 295);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 32);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Path:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(41, 451);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(147, 20);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "checking for erros...";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -88,8 +188,15 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(721, 480);
             this.ControlBox = false;
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBoxPath);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.buttonQuit);
+            this.Controls.Add(this.buttonChecking);
             this.Controls.Add(this.pictureBoxMini);
-            this.Controls.Add(this.PanelContainer);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -97,7 +204,6 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IQSaving";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini)).EndInit();
             this.ResumeLayout(false);
@@ -109,8 +215,15 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel PanelContainer;
         private System.Windows.Forms.PictureBox pictureBoxMini;
+        private System.Windows.Forms.Button buttonQuit;
+        private System.Windows.Forms.Button buttonChecking;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxPath;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

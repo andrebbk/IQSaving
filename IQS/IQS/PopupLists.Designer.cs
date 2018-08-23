@@ -212,6 +212,7 @@
             this.Name = "PopupLists";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PopupLists";
+            this.Load += new System.EventHandler(this.PopupLists_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RightRedArrow)).EndInit();

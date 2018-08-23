@@ -51,7 +51,6 @@ namespace IQS
         private void buttonLeave_Click(object sender, EventArgs e)
         {
             //Sair para o inicio
-            formInit.ReturnBegun();
             formInit.Show();
 
             //Fechar este form

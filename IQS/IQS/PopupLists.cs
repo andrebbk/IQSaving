@@ -81,7 +81,7 @@ namespace IQS
 
         private void buttonQuit_Click(object sender, EventArgs e)
         {
-            formInit.ReturnBegun();
+
             formInit.Show();
 
             this.Close();
@@ -159,6 +159,11 @@ namespace IQS
             _guardalas.Show();
 
             this.Close();
+        }
+
+        private void PopupLists_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
