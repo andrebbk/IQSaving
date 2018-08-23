@@ -129,6 +129,18 @@ namespace IQS
                 return;
             }
 
+            if(Urls_ == null)
+            {
+                label4.Text = "Invalid URLs...";
+                return;
+            }
+
+            if (Urls_.Count() < 1)
+            {
+                label4.Text = "Invalid URLs...";
+                return;
+            }
+
             try
             {
                 //Guardar todas as fotos na pasta X com o nome Y
