@@ -227,5 +227,11 @@ namespace IQS
                 label4.Text = "";
             });
         }
+
+        private void buttonQuit_Click(object sender, EventArgs e)
+        {
+            //Sair
+            Application.Exit();
+        }
     }
 }

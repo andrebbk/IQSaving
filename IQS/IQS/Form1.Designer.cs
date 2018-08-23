@@ -91,6 +91,7 @@
             this.buttonQuit.TabIndex = 7;
             this.buttonQuit.Text = "Leave";
             this.buttonQuit.UseVisualStyleBackColor = false;
+            this.buttonQuit.Click += new System.EventHandler(this.buttonQuit_Click);
             // 
             // buttonChecking
             // 
