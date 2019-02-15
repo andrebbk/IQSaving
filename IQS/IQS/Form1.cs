@@ -115,12 +115,20 @@ namespace IQS
             if (String.IsNullOrEmpty(textBoxName.Text) || textBoxName.Text == " ")
             {
                 label4.Text = "Name missing...";
+
+                Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
+                _Thread2.Start();
+
                 return;
             }
 
             if (String.IsNullOrEmpty(textBoxPath.Text) || textBoxPath.Text == " ")
             {
                 label4.Text = "Path missing...";
+
+                Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
+                _Thread2.Start();
+
                 return;
             }
 
@@ -132,18 +140,30 @@ namespace IQS
             catch
             {
                 label4.Text = "Error organizing photos...";
+
+                Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
+                _Thread2.Start();
+
                 return;
             }
 
             if(Urls_ == null)
             {
                 label4.Text = "Invalid URLs...";
+
+                Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
+                _Thread2.Start();
+
                 return;
             }
 
             if (Urls_.Count() < 1)
             {
                 label4.Text = "Invalid URLs...";
+
+                Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
+                _Thread2.Start();
+
                 return;
             }
 
@@ -153,7 +173,13 @@ namespace IQS
             try
             {
                 //Guardar todas as fotos na pasta X com o nome Y
-                SaveAllPhotos(textBoxName.Text);
+                if(!SaveAllPhotos(textBoxName.Text))
+                {
+                    Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
+                    _Thread2.Start();
+
+                    return;
+                }
             }
             catch
             {
@@ -169,7 +195,7 @@ namespace IQS
             _Thread.Start();
         }
 
-        private void SaveAllPhotos(string nome)
+        private bool SaveAllPhotos(string nome)
         {         
             int contador = 0;
 
@@ -182,37 +208,48 @@ namespace IQS
             if (Urls_ == null)
             {
                 label4.Text = " Invalid URLs...";
-                return;
+                return false;
             }
 
-            foreach (string Uri_ in Urls_)
+            try
             {
-                using (WebClient webClient = new WebClient())
+                foreach (string Uri_ in Urls_)
                 {
-                    byte[] data = webClient.DownloadData(Uri_);
-
-                    using (MemoryStream mem = new MemoryStream(data))
+                    using (WebClient webClient = new WebClient())
                     {
-                        using (var yourImage = Image.FromStream(mem))
-                        {
-                            string[] partes = Uri_.Split('.');
-                            if (partes[partes.Count() - 1].Equals("png"))
-                            {
-                                yourImage.Save(Caminho + nome + contador.ToString() + ".png", ImageFormat.Png);
-                            }
-                            else
-                            {
-                                // If you want it as Jpeg
-                                yourImage.Save(Caminho + nome + contador.ToString() + ".jpg", ImageFormat.Jpeg);
-                            }
+                        byte[] data = webClient.DownloadData(Uri_);
 
+                        using (MemoryStream mem = new MemoryStream(data))
+                        {
+                            using (var yourImage = Image.FromStream(mem))
+                            {
+                                string[] partes = Uri_.Split('.');
+                                if (partes[partes.Count() - 1].Equals("png"))
+                                {
+                                    yourImage.Save(Caminho + nome + contador.ToString() + ".png", ImageFormat.Png);
+                                }
+                                else
+                                {
+                                    // If you want it as Jpeg
+                                    yourImage.Save(Caminho + nome + contador.ToString() + ".jpg", ImageFormat.Jpeg);
+                                }
+
+                            }
                         }
+
                     }
 
+                    contador++;
                 }
 
-                contador++;
+                return true;
             }
+            catch
+            {
+                label4.Text = " Invalid URLs...";
+                return false;
+            }
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -235,7 +272,7 @@ namespace IQS
 
         void ResetLAbel4()
         {
-            System.Threading.Thread.Sleep(2000);
+            System.Threading.Thread.Sleep(3000);
 
             label4.Invoke((MethodInvoker)delegate {
 

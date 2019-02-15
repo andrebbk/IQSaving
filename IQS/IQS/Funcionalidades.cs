@@ -118,6 +118,11 @@ namespace IQS
         //Verificar urls
         public static bool IsImageUrl(string URL)
         {
+
+            //Gram
+            if (URL.Contains("instagram"))
+                return true;
+
             //separar string pelos pontos finais
             string[] parts = URL.Split('.');
 
