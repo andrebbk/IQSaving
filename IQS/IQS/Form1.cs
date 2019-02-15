@@ -79,7 +79,11 @@ namespace IQS
             if (!String.IsNullOrEmpty(text))
             {
                 string Dados = Clipboard.GetText(TextDataFormat.Text).ToString();
-                _Urls = Funcionalidades.BuscarUrls(text);
+
+                if(flagCheckG)
+                    _Urls = Funcionalidades.BuscarUrls(text, flagCheckG);
+                else
+                    _Urls = Funcionalidades.BuscarUrls(text, false);
             }
             else
             {
@@ -198,12 +202,6 @@ namespace IQS
         private bool SaveAllPhotos(string nome)
         {         
             int contador = 0;
-
-            if(flagCheckG)
-            {
-                //Gram
-                Urls_ = Funcionalidades.BuscarUrlsGram(Urls_);
-            }
 
             if (Urls_ == null)
             {

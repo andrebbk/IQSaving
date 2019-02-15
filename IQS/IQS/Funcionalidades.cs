@@ -13,7 +13,7 @@ namespace IQS
     public class Funcionalidades
     {
         //Buscar so urls de imagens
-        public static List<string> BuscarUrls(string Dados)
+        public static List<string> BuscarUrls(string Dados, bool isGram)
         {
             string[] data_ = Dados.Split('\n');
 
@@ -59,11 +59,27 @@ namespace IQS
             //Enviar urls de imagens
             List<string> _lista = new List<string>();
 
-            foreach (string str3 in _urls)
+            if(isGram)
             {
-                if (!String.IsNullOrWhiteSpace(str3) && IsImageUrl(str3))
-                    _lista.Add(str3);
+                //Buscar gramUrl
+                _urls = BuscarUrlsGram(_urls);
+
+                foreach (string str3 in _urls)
+                {                
+                    //Gram
+                    if (!String.IsNullOrWhiteSpace(str3) && str3.Contains("instagram.fopo"))
+                        _lista.Add(str3);
+                }                
             }
+            else
+            {
+                //Normal
+                foreach (string str3 in _urls)
+                {
+                    if (!String.IsNullOrWhiteSpace(str3) && IsImageUrl(str3))
+                        _lista.Add(str3);
+                }
+            }            
 
             return _lista;           
         }
@@ -119,10 +135,6 @@ namespace IQS
         public static bool IsImageUrl(string URL)
         {
 
-            //Gram
-            if (URL.Contains("instagram"))
-                return true;
-
             //separar string pelos pontos finais
             string[] parts = URL.Split('.');
 
@@ -152,30 +164,34 @@ namespace IQS
             {
                 foreach (string strurl in urls)
                 {
-                    using (var webClient = new System.Net.WebClient())
+                    //Se for img selected
+                    if(strurl.Contains("instagram.com/p/"))
                     {
-                        //Parse with JSON.Net
-                        var jsonTexto = webClient.DownloadString(strurl);
-
-                        string[] partes = jsonTexto.Split('<');
-                        string linha = " ";
-
-                        for (int i = 0; i < partes.Length; i++)
+                        using (var webClient = new System.Net.WebClient())
                         {
-                            //Estudo do json
-                            if (partes[i].Contains("meta property=\"og:image\" content=\""))
+                            //Parse with JSON.Net
+                            var jsonTexto = webClient.DownloadString(strurl);
+
+                            string[] partes = jsonTexto.Split('<');
+                            string linha = " ";
+
+                            for (int i = 0; i < partes.Length; i++)
                             {
-                                linha = partes[i];
-                                break;
+                                //Estudo do json
+                                if (partes[i].Contains("meta property=\"og:image\" content=\""))
+                                {
+                                    linha = partes[i];
+                                    break;
+                                }
                             }
-                        }
 
-                        if (linha != " ")
-                        {
-                            string[] partes2 = linha.Split('\"');
+                            if (linha != " ")
+                            {
+                                string[] partes2 = linha.Split('\"');
 
-                            //Adicionar à lista
-                            listaAUX.Add(partes2[3]);
+                                //Adicionar à lista
+                                listaAUX.Add(partes2[3]);
+                            }
                         }
                     }
                 }
