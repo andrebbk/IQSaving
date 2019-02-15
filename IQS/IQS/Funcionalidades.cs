@@ -139,37 +139,52 @@ namespace IQS
         }
 
         //Buscar Url do gram
-        public static string BuscarUrlGram(string urlf)
+        public static List<string> BuscarUrlsGram(List<string> urls)
         {
-            using (var webClient = new System.Net.WebClient())
+            List<string> listaAUX = new List<string>();
+
+            try
             {
-                //Parse with JSON.Net
-                var jsonTexto = webClient.DownloadString(urlf);              
-
-                string[] partes = jsonTexto.Split('<');
-                string linha = " ";
-
-                for (int i = 0; i < partes.Length; i++)
+                foreach (string strurl in urls)
                 {
-                    //Estudo do json
-                    if (partes[i].Contains("meta property=\"og:image\" content=\""))
+                    using (var webClient = new System.Net.WebClient())
                     {
-                        linha = partes[i];
-                        break;
+                        //Parse with JSON.Net
+                        var jsonTexto = webClient.DownloadString(strurl);
+
+                        string[] partes = jsonTexto.Split('<');
+                        string linha = " ";
+
+                        for (int i = 0; i < partes.Length; i++)
+                        {
+                            //Estudo do json
+                            if (partes[i].Contains("meta property=\"og:image\" content=\""))
+                            {
+                                linha = partes[i];
+                                break;
+                            }
+                        }
+
+                        if (linha != " ")
+                        {
+                            string[] partes2 = linha.Split('\"');
+
+                            //Adicionar à lista
+                            listaAUX.Add(partes2[3]);
+                        }
                     }
                 }
-
-                if (linha != " ")
-                {
-                    string[] partes2 = linha.Split('\"');
-
-                    return partes2[3];
-                }
-                else
-                {
-                    return null;
-                }
             }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+           
+
+            if (listaAUX.Count > 0)
+                return listaAUX;
+            else
+                return null;
         }
 
         public static byte[] GetImageAsByteArray(string urlImage)

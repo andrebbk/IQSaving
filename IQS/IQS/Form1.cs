@@ -170,14 +170,20 @@ namespace IQS
         }
 
         private void SaveAllPhotos(string nome)
-        {
-            if(Urls_ == null)
+        {         
+            int contador = 0;
+
+            if(flagCheckG)
+            {
+                //Gram
+                Urls_ = Funcionalidades.BuscarUrlsGram(Urls_);
+            }
+
+            if (Urls_ == null)
             {
                 label4.Text = " Invalid URLs...";
                 return;
             }
-
-            int contador = 0;
 
             foreach (string Uri_ in Urls_)
             {
@@ -249,14 +255,12 @@ namespace IQS
             {
                 //Remover escolha
                 flagCheckG = false;
-
                 pictureBoxChecked.BackgroundImage = Properties.Resources.icon_notdone;
             }
             else
             {
                 //Escolher gram
                 flagCheckG = true;
-
                 pictureBoxChecked.BackgroundImage = Properties.Resources.icon_done;
             }
         }
