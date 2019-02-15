@@ -161,5 +161,14 @@
   <ItemGroup>
     <None Include="Resources\icon_notdone.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loader3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Loader4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loader5.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

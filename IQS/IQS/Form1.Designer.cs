@@ -42,10 +42,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBoxGram = new System.Windows.Forms.PictureBox();
             this.pictureBoxChecked = new System.Windows.Forms.PictureBox();
+            this.pictureBoxloadgif = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGram)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChecked)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxloadgif)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -73,7 +75,7 @@
             // pictureBoxMini
             // 
             this.pictureBoxMini.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxMini.BackgroundImage = global::IQS.Properties.Resources.arrow_minimize;
+            this.pictureBoxMini.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxMini.BackgroundImage")));
             this.pictureBoxMini.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxMini.Location = new System.Drawing.Point(692, 18);
             this.pictureBoxMini.Name = "pictureBoxMini";
@@ -176,16 +178,18 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.NavajoWhite;
             this.label4.Location = new System.Drawing.Point(41, 451);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 20);
+            this.label4.Size = new System.Drawing.Size(168, 20);
             this.label4.TabIndex = 17;
             this.label4.Text = "checking for erros...";
             // 
             // pictureBoxGram
             // 
+            this.pictureBoxGram.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxGram.BackgroundImage = global::IQS.Properties.Resources.icon_gram;
             this.pictureBoxGram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxGram.Location = new System.Drawing.Point(364, 431);
@@ -199,11 +203,24 @@
             // 
             this.pictureBoxChecked.BackgroundImage = global::IQS.Properties.Resources.icon_notdone;
             this.pictureBoxChecked.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxChecked.Location = new System.Drawing.Point(376, 476);
+            this.pictureBoxChecked.Location = new System.Drawing.Point(392, 471);
             this.pictureBoxChecked.Name = "pictureBoxChecked";
             this.pictureBoxChecked.Size = new System.Drawing.Size(17, 18);
             this.pictureBoxChecked.TabIndex = 19;
             this.pictureBoxChecked.TabStop = false;
+            // 
+            // pictureBoxloadgif
+            // 
+            this.pictureBoxloadgif.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxloadgif.Image = global::IQS.Properties.Resources.loader5;
+            this.pictureBoxloadgif.InitialImage = null;
+            this.pictureBoxloadgif.Location = new System.Drawing.Point(326, -3);
+            this.pictureBoxloadgif.Name = "pictureBoxloadgif";
+            this.pictureBoxloadgif.Size = new System.Drawing.Size(117, 99);
+            this.pictureBoxloadgif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxloadgif.TabIndex = 20;
+            this.pictureBoxloadgif.TabStop = false;
+            this.pictureBoxloadgif.Visible = false;
             // 
             // Form1
             // 
@@ -214,6 +231,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(755, 504);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBoxloadgif);
             this.Controls.Add(this.pictureBoxChecked);
             this.Controls.Add(this.pictureBoxGram);
             this.Controls.Add(this.label4);
@@ -236,6 +254,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGram)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChecked)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxloadgif)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,6 +275,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBoxGram;
         private System.Windows.Forms.PictureBox pictureBoxChecked;
+        private System.Windows.Forms.PictureBox pictureBoxloadgif;
     }
 }
 

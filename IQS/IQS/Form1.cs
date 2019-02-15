@@ -41,6 +41,7 @@ namespace IQS
             InitializeComponent();
 
             flagCheckG = false;
+            pictureBoxloadgif.Visible = false;
         }
 
         private void pictureBoxMini_Click(object sender, EventArgs e)
@@ -108,11 +109,16 @@ namespace IQS
 
         private void buttonChecking_Click(object sender, EventArgs e)
         {
+            pictureBoxloadgif.Visible = true;
+
             DataObject retrievedData = (DataObject)Clipboard.GetDataObject();
 
             if (retrievedData == null)
             {
                 label4.Text = "Data missing...";
+
+                Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
+                _Thread2.Start();
                 return;
             }
 
@@ -122,7 +128,6 @@ namespace IQS
 
                 Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
                 _Thread2.Start();
-
                 return;
             }
 
@@ -132,7 +137,6 @@ namespace IQS
 
                 Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
                 _Thread2.Start();
-
                 return;
             }
 
@@ -147,7 +151,6 @@ namespace IQS
 
                 Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
                 _Thread2.Start();
-
                 return;
             }
 
@@ -157,7 +160,6 @@ namespace IQS
 
                 Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
                 _Thread2.Start();
-
                 return;
             }
 
@@ -167,7 +169,6 @@ namespace IQS
 
                 Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
                 _Thread2.Start();
-
                 return;
             }
 
@@ -181,13 +182,15 @@ namespace IQS
                 {
                     Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
                     _Thread2.Start();
-
                     return;
                 }
             }
             catch
             {
                 label4.Text = "Error saving photos...";
+
+                Thread _Thread6 = new Thread(new ThreadStart(ResetLAbel4));
+                _Thread6.Start();
                 return;
             }
 
@@ -275,6 +278,7 @@ namespace IQS
             label4.Invoke((MethodInvoker)delegate {
 
                 label4.Text = "";
+                pictureBoxloadgif.Visible = false;
             });
         }
 
