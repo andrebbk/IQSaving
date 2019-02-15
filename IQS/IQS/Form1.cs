@@ -109,7 +109,7 @@ namespace IQS
 
         private void buttonChecking_Click(object sender, EventArgs e)
         {
-            pictureBoxloadgif.Visible = true;
+            pictureBoxloadgif.Invoke((MethodInvoker)delegate { pictureBoxloadgif.Visible = true; });
 
             DataObject retrievedData = (DataObject)Clipboard.GetDataObject();
 
@@ -277,9 +277,16 @@ namespace IQS
 
             label4.Invoke((MethodInvoker)delegate {
 
-                label4.Text = "";
-                pictureBoxloadgif.Visible = false;
+                label4.Text = "";                
             });
+
+            pictureBoxloadgif.Invoke((MethodInvoker)delegate { pictureBoxloadgif.Visible = false; });
+        }
+
+        void CorrerGIF()
+        {
+            pictureBoxloadgif.Invoke((MethodInvoker)delegate { pictureBoxloadgif.Visible = true; });
+            Application.DoEvents();
         }
 
         private void buttonQuit_Click(object sender, EventArgs e)
