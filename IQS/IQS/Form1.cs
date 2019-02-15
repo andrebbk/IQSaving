@@ -19,11 +19,6 @@ namespace IQS
         private String Caminho = null;
         List<string> Urls_;
 
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
         //Form drag
         protected override void WndProc(ref Message m)
         {
@@ -36,6 +31,17 @@ namespace IQS
         private const int WM_NCHITTEST = 0x84;
         private const int HT_CLIENT = 0x1;
         private const int HT_CAPTION = 0x2;
+
+        //Flags
+        private bool flagCheckG = false;
+
+        //Inicializar
+        public Form1()
+        {
+            InitializeComponent();
+
+            flagCheckG = false;
+        }
 
         private void pictureBoxMini_Click(object sender, EventArgs e)
         {
@@ -141,6 +147,9 @@ namespace IQS
                 return;
             }
 
+            //Guardar todas as fotos na pasta X com o nome Y
+            SaveAllPhotos(textBoxName.Text);
+
             try
             {
                 //Guardar todas as fotos na pasta X com o nome Y
@@ -232,6 +241,24 @@ namespace IQS
         {
             //Sair
             Application.Exit();
+        }
+
+        private void pictureBoxGram_Click(object sender, EventArgs e)
+        {
+            if(flagCheckG)
+            {
+                //Remover escolha
+                flagCheckG = false;
+
+                pictureBoxChecked.BackgroundImage = Properties.Resources.icon_notdone;
+            }
+            else
+            {
+                //Escolher gram
+                flagCheckG = true;
+
+                pictureBoxChecked.BackgroundImage = Properties.Resources.icon_done;
+            }
         }
     }
 }

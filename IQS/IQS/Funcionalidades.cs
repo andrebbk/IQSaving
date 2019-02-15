@@ -138,6 +138,40 @@ namespace IQS
             }
         }
 
+        //Buscar Url do gram
+        public static string BuscarUrlGram(string urlf)
+        {
+            using (var webClient = new System.Net.WebClient())
+            {
+                //Parse with JSON.Net
+                var jsonTexto = webClient.DownloadString(urlf);              
+
+                string[] partes = jsonTexto.Split('<');
+                string linha = " ";
+
+                for (int i = 0; i < partes.Length; i++)
+                {
+                    //Estudo do json
+                    if (partes[i].Contains("meta property=\"og:image\" content=\""))
+                    {
+                        linha = partes[i];
+                        break;
+                    }
+                }
+
+                if (linha != " ")
+                {
+                    string[] partes2 = linha.Split('\"');
+
+                    return partes2[3];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
         public static byte[] GetImageAsByteArray(string urlImage)
         {
             var webClient = new WebClient();

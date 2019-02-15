@@ -40,17 +40,21 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBoxGram = new System.Windows.Forms.PictureBox();
+            this.pictureBoxChecked = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChecked)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::IQS.Properties.Resources.save;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(454, 29);
+            this.pictureBox1.Location = new System.Drawing.Point(501, 72);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(185, 176);
+            this.pictureBox1.Size = new System.Drawing.Size(138, 129);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -60,7 +64,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.NavajoWhite;
-            this.label1.Location = new System.Drawing.Point(44, 18);
+            this.label1.Location = new System.Drawing.Point(30, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(318, 87);
             this.label1.TabIndex = 1;
@@ -71,7 +75,7 @@
             this.pictureBoxMini.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxMini.BackgroundImage = global::IQS.Properties.Resources.arrow_minimize;
             this.pictureBoxMini.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxMini.Location = new System.Drawing.Point(669, 1);
+            this.pictureBoxMini.Location = new System.Drawing.Point(692, 18);
             this.pictureBoxMini.Name = "pictureBoxMini";
             this.pictureBoxMini.Size = new System.Drawing.Size(51, 52);
             this.pictureBoxMini.TabIndex = 3;
@@ -180,6 +184,27 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "checking for erros...";
             // 
+            // pictureBoxGram
+            // 
+            this.pictureBoxGram.BackgroundImage = global::IQS.Properties.Resources.icon_gram;
+            this.pictureBoxGram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxGram.Location = new System.Drawing.Point(364, 431);
+            this.pictureBoxGram.Name = "pictureBoxGram";
+            this.pictureBoxGram.Size = new System.Drawing.Size(41, 40);
+            this.pictureBoxGram.TabIndex = 18;
+            this.pictureBoxGram.TabStop = false;
+            this.pictureBoxGram.Click += new System.EventHandler(this.pictureBoxGram_Click);
+            // 
+            // pictureBoxChecked
+            // 
+            this.pictureBoxChecked.BackgroundImage = global::IQS.Properties.Resources.icon_notdone;
+            this.pictureBoxChecked.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxChecked.Location = new System.Drawing.Point(376, 476);
+            this.pictureBoxChecked.Name = "pictureBoxChecked";
+            this.pictureBoxChecked.Size = new System.Drawing.Size(17, 18);
+            this.pictureBoxChecked.TabIndex = 19;
+            this.pictureBoxChecked.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,8 +212,10 @@
             this.BackColor = System.Drawing.SystemColors.GrayText;
             this.BackgroundImage = global::IQS.Properties.Resources.tree_361647_640;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(721, 480);
+            this.ClientSize = new System.Drawing.Size(755, 504);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBoxChecked);
+            this.Controls.Add(this.pictureBoxGram);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxPath);
             this.Controls.Add(this.button1);
@@ -207,6 +234,8 @@
             this.Text = "IQSaving";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGram)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChecked)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,6 +254,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBoxGram;
+        private System.Windows.Forms.PictureBox pictureBoxChecked;
     }
 }
 

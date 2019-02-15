@@ -59,6 +59,8 @@ namespace IQS
 
         private void PopulateListView()
         {
+            listViewFotos.View = View.LargeIcon;
+
             ImageList _images = new ImageList();
             _images.ImageSize = new Size(192, 192);
             _images.ColorDepth = ColorDepth.Depth32Bit;
@@ -70,8 +72,7 @@ namespace IQS
                     _images.Images.Add(Image.FromStream(ms));
                 }
             }
-
-            listViewFotos.View = View.LargeIcon;
+            
             listViewFotos.LargeImageList = _images;
             
 

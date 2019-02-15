@@ -152,5 +152,14 @@
   <ItemGroup>
     <None Include="Resources\up-circular-icon-512.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-gram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_done.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_notdone.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
