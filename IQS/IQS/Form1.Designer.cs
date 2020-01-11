@@ -43,11 +43,15 @@
             this.pictureBoxGram = new System.Windows.Forms.PictureBox();
             this.pictureBoxChecked = new System.Windows.Forms.PictureBox();
             this.pictureBoxloadgif = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAllUrls = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAllUrlsCheck = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMini)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGram)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChecked)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxloadgif)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAllUrls)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAllUrlsCheck)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -222,6 +226,28 @@
             this.pictureBoxloadgif.TabStop = false;
             this.pictureBoxloadgif.Visible = false;
             // 
+            // pictureBoxAllUrls
+            // 
+            this.pictureBoxAllUrls.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxAllUrls.BackgroundImage = global::IQS.Properties.Resources.Weblink_icon_Saint_Louis_Me_1_vectorized;
+            this.pictureBoxAllUrls.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxAllUrls.Location = new System.Drawing.Point(427, 431);
+            this.pictureBoxAllUrls.Name = "pictureBoxAllUrls";
+            this.pictureBoxAllUrls.Size = new System.Drawing.Size(41, 40);
+            this.pictureBoxAllUrls.TabIndex = 21;
+            this.pictureBoxAllUrls.TabStop = false;
+            this.pictureBoxAllUrls.Click += new System.EventHandler(this.pictureBoxAllUrls_Click);
+            // 
+            // pictureBoxAllUrlsCheck
+            // 
+            this.pictureBoxAllUrlsCheck.BackgroundImage = global::IQS.Properties.Resources.icon_notdone;
+            this.pictureBoxAllUrlsCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxAllUrlsCheck.Location = new System.Drawing.Point(465, 471);
+            this.pictureBoxAllUrlsCheck.Name = "pictureBoxAllUrlsCheck";
+            this.pictureBoxAllUrlsCheck.Size = new System.Drawing.Size(17, 18);
+            this.pictureBoxAllUrlsCheck.TabIndex = 22;
+            this.pictureBoxAllUrlsCheck.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,6 +257,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(755, 504);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBoxAllUrlsCheck);
+            this.Controls.Add(this.pictureBoxAllUrls);
             this.Controls.Add(this.pictureBoxloadgif);
             this.Controls.Add(this.pictureBoxChecked);
             this.Controls.Add(this.pictureBoxGram);
@@ -255,6 +283,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGram)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxChecked)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxloadgif)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAllUrls)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAllUrlsCheck)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,6 +306,8 @@
         private System.Windows.Forms.PictureBox pictureBoxGram;
         private System.Windows.Forms.PictureBox pictureBoxChecked;
         private System.Windows.Forms.PictureBox pictureBoxloadgif;
+        private System.Windows.Forms.PictureBox pictureBoxAllUrls;
+        private System.Windows.Forms.PictureBox pictureBoxAllUrlsCheck;
     }
 }
 

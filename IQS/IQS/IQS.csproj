@@ -170,5 +170,9 @@
   <ItemGroup>
     <None Include="Resources\loader5.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Weblink-icon-Saint-Louis-Me-1_vectorized.png" />
+    <None Include="Resources\Weblink-icon-Saint-Louis-Me-1_vectorized1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

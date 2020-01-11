@@ -118,11 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="save_EBp_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save_EBp_icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="loader3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loader3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tree_361647_640" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tree-361647_640.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,34 +130,40 @@
   <data name="arrow_right_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arrow-right-red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="previous" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\previous.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="round_black_bottom_arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\round-black-bottom-arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="up_circular_icon_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\up-circular-icon-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_gram" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-gram.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="previous" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\previous.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon_done" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_done.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon_notdone" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_notdone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="loader5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loader5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arrow_minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow-minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="loader3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loader3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="save_EBp_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save_EBp_icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Loader4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Loader4.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loader5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loader5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_notdone" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_notdone.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="round_black_bottom_arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\round-black-bottom-arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow-minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Weblink-icon-Saint-Louis-Me-1_vectorized" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Weblink-icon-Saint-Louis-Me-1_vectorized1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

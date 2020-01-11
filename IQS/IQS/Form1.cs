@@ -34,6 +34,7 @@ namespace IQS
 
         //Flags
         private bool flagCheckG = false;
+        private bool flagAllurls = false;
 
         //Inicializar
         public Form1()
@@ -81,7 +82,9 @@ namespace IQS
             {
                 string Dados = Clipboard.GetText(TextDataFormat.Text).ToString();
 
-                if(flagCheckG)
+                if (flagAllurls)
+                    _Urls = Funcionalidades.BuscarTodas(text);
+                else if(flagCheckG)
                     _Urls = Funcionalidades.BuscarUrls(text, flagCheckG);
                 else
                     _Urls = Funcionalidades.BuscarUrls(text, false);
@@ -173,17 +176,31 @@ namespace IQS
             }
 
             //Guardar todas as fotos na pasta X com o nome Y
-            SaveAllPhotos(textBoxName.Text);
+           // SaveAllPhotos(textBoxName.Text);
 
             try
             {
-                //Guardar todas as fotos na pasta X com o nome Y
-                if(!SaveAllPhotos(textBoxName.Text))
+                if(flagAllurls)
                 {
-                    Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
-                    _Thread2.Start();
-                    return;
+                    //Save all urls
+                    if(!SaveAllUrls(textBoxName.Text))
+                    {
+                        Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
+                        _Thread2.Start();
+                        return;
+                    }
                 }
+                else
+                {
+                    //Guardar todas as fotos na pasta X com o nome Y
+                    if (!SaveAllPhotos(textBoxName.Text))
+                    {
+                        Thread _Thread2 = new Thread(new ThreadStart(ResetLAbel4));
+                        _Thread2.Start();
+                        return;
+                    }
+                }
+                
             }
             catch
             {
@@ -309,6 +326,62 @@ namespace IQS
                 flagCheckG = true;
                 pictureBoxChecked.BackgroundImage = Properties.Resources.icon_done;
             }
+        }
+
+        private void pictureBoxAllUrls_Click(object sender, EventArgs e)
+        {
+            if (flagAllurls)
+            {
+                //Remover escolha
+                flagAllurls = false;
+                pictureBoxAllUrlsCheck.BackgroundImage = Properties.Resources.icon_notdone;
+            }
+            else
+            {
+                //Escolher gram
+                flagAllurls = true;
+                pictureBoxAllUrlsCheck.BackgroundImage = Properties.Resources.icon_done;
+            }
+        }
+
+        private bool SaveAllUrls(string nome)
+        {
+            int contador = 0;
+
+            if (Urls_ == null)
+            {
+                label4.Text = " Invalid URLs...";
+                return false;
+            }            
+
+            foreach (string Uri_ in Urls_)
+            {
+                try
+                {
+                    using (WebClient webClient = new WebClient())
+                    {
+                        byte[] data = webClient.DownloadData(Uri_);
+
+                        using (MemoryStream mem = new MemoryStream(data))
+                        {
+                            using (var yourImage = Image.FromStream(mem))
+                            {
+                                // If you want it as Png
+                                yourImage.Save(Caminho + nome + contador.ToString() + ".png", ImageFormat.Png);
+                            }
+                        }
+
+                    }
+                }
+                catch
+                {                   
+                }
+
+                contador++;
+            }
+
+            return true;
+
         }
     }
 }

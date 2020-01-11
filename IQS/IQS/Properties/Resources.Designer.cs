@@ -209,5 +209,15 @@ namespace IQS.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Weblink_icon_Saint_Louis_Me_1_vectorized {
+            get {
+                object obj = ResourceManager.GetObject("Weblink-icon-Saint-Louis-Me-1_vectorized", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

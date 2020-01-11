@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -131,6 +134,27 @@ namespace IQS
             return _urls;
         }
 
+        //Buscar todas
+        public static List<string> BuscarTodas(string Dados)
+        {
+            string[] data_ = Dados.Split('\n');
+
+            //Lista com as strings copiadas
+            List<string> _urls = data_.OfType<string>().ToList();
+
+            //Remover /r/n
+            foreach (string str in _urls.ToList())
+            {
+                var itemIndex = _urls.FindIndex(x => x == str);
+                var item = _urls.ElementAt(itemIndex);
+                _urls.RemoveAt(itemIndex);
+                item = str.Replace("\r\n", "").Replace("\r", "").Replace("\n", "");
+                _urls.Insert(itemIndex, item);
+            }
+
+            return _urls;
+        }
+
         //Verificar urls
         public static bool IsImageUrl(string URL)
         {
@@ -213,5 +237,6 @@ namespace IQS
             var webClient = new WebClient();
             return webClient.DownloadData(urlImage);
         }
+
     }
 }
